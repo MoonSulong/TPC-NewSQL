@@ -2,7 +2,7 @@
 Benchmark NewSQL(MemSQL) database performance based on TPCC protocol.
 
 * [MemSQL](https://docs.memsql.com/v6.8/introduction/documentation-overview/) offical documents
-* [TPC-C Benchmark](https://github.com/Percona-Lab/tpcc-mysql)
+* [TPC-C Benchmark](https://github.com/Percona-Lab/tpcc-mysql) Percona-Lab tpcc-mysql tutorial
 
 ## Environment Setup
 
