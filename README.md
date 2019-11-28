@@ -1,11 +1,12 @@
 # TPC-NewSQL
 Benchmark NewSQL(MemSQL) database performance based on TPCC protocol.
 
-* [MemSQL](https://docs.memsql.com/v6.8/introduction/documentation-overview/) offical documents for MemSQL
+* [MemSQL](https://docs.memsql.com/v6.8/introduction/documentation-overview/) offical documents
+* [TPC-C Benchmark](https://github.com/Percona-Lab/tpcc-mysql)
 
 ## Environment Setup
 
-This experiment is set on 3 nodes cluster(Ubuntu 16.04), and MySQL is used to transfer data generated from[tpcc benchmark](https://github.com/Percona-Lab/tpcc-mysql)
+This experiment is set on 3 nodes cluster(Ubuntu 16.04), and MySQL is used to transfer data generated from TPC-C.
 
 ### Update and upgrade Ubuntu 16.04
 
@@ -32,15 +33,15 @@ sudo service mysql start
 
 ### TPC-C data 
 
-```bash
-$ git clone https://github.com/Percona-Lab/tpcc-mysql
+```
+git clone https://github.com/Percona-Lab/tpcc-mysql
 ```
 
-####Build Binaries
+#### Build Binaries
 
 Running `make -C src/` will build two binaries: `tpcc_load` and `tpcc_start`.
 
-####Generate Dataset
+#### Generate Dataset
 
 * Create database
      `mysqladmin create tpcc1000`
@@ -56,7 +57,7 @@ Running `make -C src/` will build two binaries: `tpcc_load` and `tpcc_start`.
      - load data in parallel 
        check load.sh script
 * Start benchmark
-   * `./tpcc_start -h127.0.0.1 -P3306 -dtpcc1000 -uroot -w1000 -c32 -r10 -l10800`
+   * `./tpcc_start -h127.0.0.1 -P3306 -dtpcc1000 -uroot -w1000 -c32 -r10 -l10800` (port can be modified into 3307 for MemSQL)
    * |hostname| |port| |dbname| |user| |WAREHOUSES| |CONNECTIONS| |WARMUP TIME| |BENCHMARK TIME|
    * ref. tpcc_start --help for all options 
 
